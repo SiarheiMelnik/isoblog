@@ -1,6 +1,7 @@
 'use strict';
 
 var React = require('react'),
+	NavBar = require('./NavBar.react'),
 	PostList = require('./PostList.react');
 
 var App = React.createClass({
@@ -12,7 +13,8 @@ var App = React.createClass({
 	},
 	render: function() {
 		return (
-			<div>
+			<div className="layout">
+				<NavBar />
 				<PostList posts={this.state.posts}/>
 			</div>
 		)

@@ -6,10 +6,14 @@ var PostItem = React.createClass({
 	render: function() {
 		var post = this.props.post;
 		return (
-			<li>
-				<span>{post.title}</span>
-				<span>{post.body}</span>
-			</li>
+			<section className="post">
+				<header className="post__header">
+					<h2 className="post__title">{post.title}</h2>
+				</header>
+				<div className="post__description">
+					<p>{post.body}</p>
+				</div>
+			</section>
 		)
 	}
 });

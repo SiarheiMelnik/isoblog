@@ -14,6 +14,7 @@ React.render(
 'use strict';
 
 var React = require('react'),
+	NavBar = require('./NavBar.react'),
 	PostList = require('./PostList.react');
 
 var App = React.createClass({displayName: "App",
@@ -25,7 +26,8 @@ var App = React.createClass({displayName: "App",
 	},
 	render: function() {
 		return (
-			React.createElement("div", null, 
+			React.createElement("div", {className: "layout"}, 
+				React.createElement(NavBar, null), 
 				React.createElement(PostList, {posts: this.state.posts})
 			)
 		)
@@ -33,7 +35,23 @@ var App = React.createClass({displayName: "App",
 });
 
 module.exports = App;
-},{"./PostList.react":"/home/siarhei/projects/isoblog/components/PostList.react.js","react":"/home/siarhei/projects/isoblog/node_modules/react/react.js"}],"/home/siarhei/projects/isoblog/components/PostItem.react.js":[function(require,module,exports){
+},{"./NavBar.react":"/home/siarhei/projects/isoblog/components/NavBar.react.js","./PostList.react":"/home/siarhei/projects/isoblog/components/PostList.react.js","react":"/home/siarhei/projects/isoblog/node_modules/react/react.js"}],"/home/siarhei/projects/isoblog/components/NavBar.react.js":[function(require,module,exports){
+'use strict';
+
+var React = require('react');
+
+var NavBar = React.createClass({displayName: "NavBar",
+	render: function() {
+		return (
+			React.createElement("div", {className: "sidebar sidebar--center"}, 
+				React.createElement("h1", null, "frontend blog")
+			)
+		)
+	}
+});
+
+module.exports = NavBar;
+},{"react":"/home/siarhei/projects/isoblog/node_modules/react/react.js"}],"/home/siarhei/projects/isoblog/components/PostItem.react.js":[function(require,module,exports){
 'use strict';
 
 var React = require('react');
@@ -42,9 +60,13 @@ var PostItem = React.createClass({displayName: "PostItem",
 	render: function() {
 		var post = this.props.post;
 		return (
-			React.createElement("li", null, 
-				React.createElement("span", null, post.title), 
-				React.createElement("span", null, post.body)
+			React.createElement("section", {className: "post"}, 
+				React.createElement("header", {className: "post__header"}, 
+					React.createElement("h2", {className: "post__title"}, post.title)
+				), 
+				React.createElement("div", {className: "post__description"}, 
+					React.createElement("p", null, post.body)
+				)
 			)
 		)
 	}
@@ -66,7 +88,9 @@ var PostList = React.createClass({displayName: "PostList",
         });
         
         return (
-            React.createElement("ul", null, content)
+            React.createElement("div", {className: "content"}, 
+                content
+            )
         )
     }
 });

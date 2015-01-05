@@ -12,7 +12,9 @@ var PostList = React.createClass({
         });
         
         return (
-            <ul>{content}</ul>
+            <div className="content">
+                {content}
+            </div>
         )
     }
 });

@@ -1,0 +1,28 @@
+.layout {
+	display: flex;
+	min-height: 100vh;
+	flex-direction: row;
+	font-family: 'Roboto', sans-serif;
+	color: @primaryTextColor;
+}
+
+.sidebar {
+	background-color: @primaryColor;
+	flex: 0 0 16rem;
+	order: -1;
+}
+
+.sidebar--center {
+	display: flex;
+	align-items: center;
+	justify-content: center;
+}
+
+.content {
+	flex: 1;
+	background-color: #fff;
+}
+
+.sidebar, .content {
+	padding: 2rem;
+}

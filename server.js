@@ -26,11 +26,17 @@ var middleware = compose([
     router(app)
 ]);
 
+mongoose.connect('mongodb://localhost:27017/isoblog');
+
+mongoose.connection.on('error', function (err) {
+    console.log(err);
+});
+
 app.use(middleware);
 
 app.get('/', routers.index);
 
-app.get('/posts/:from/:to', routers.posts);
+app.get('/api/v1/posts/:from/:to', routers.posts);
 
 http.createServer(app.callback())
     .listen(port);

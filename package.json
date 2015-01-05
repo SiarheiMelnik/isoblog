@@ -1,7 +1,9 @@
 {
   "name": "isoblog",
   "version": "1.0.0",
-  "description": "",
+  "private": true,
+  "description": "simple isomotphic blog",
+  "main": "server.js",
   "scripts": {
     "start": "node --harmony server.js"
   },
